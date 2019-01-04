@@ -11,12 +11,32 @@ var checked = {
 
 $(".source").hide();
 
-$(".btn").click(function() {
+var timeCounter = 5;
+var counterBox = $("#counter");
+counterBox.text("You have " + timeCounter + " seconds left.");
 
-    var score = 0;
 
-    var data = (Object.values(checked));
-    console.log(data);
+
+var timer = setInterval(countdown, 5000);
+
+var score = 0;
+var scoreBox = $("<div>");
+$("#game").append(scoreBox);
+
+function countdown() {
+    timeCounter--;
+    counterBox.text("You have " + timeCounter + " seconds left.");
+
+    if (timeCounter == 0) {
+        alert("Sorry, you ran out of time. You got " + score + " out of 3 correct.");
+        clearInterval(countdown);
+        counterBox.text("You have no time left.");
+    } else if(timeCounter <= 0) {
+        counterBox.text("You have no time left.");
+    }
+}
+
+var data = (Object.values(checked));
 
     for (var i = 0; i < data.length; i++) {
         if(data[i] == "correct") {
@@ -24,13 +44,17 @@ $(".btn").click(function() {
         }
     }
 
-    console.log();
+$("#btn").click(function() {
+
+    timeCounter = "done";
+    clearInterval(countdown);
+    $("#counter").hide();
 
     $(".source").show();
 
-    var scoreBox = $("<div>");
+    
     $(scoreBox).text("You answered " + score + " out of 3 questions correctly.");
-    $("#game").append(scoreBox);
+    
 
 });
 

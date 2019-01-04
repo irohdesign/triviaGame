@@ -1,0 +1,39 @@
+.container {
+    margin-top: 50px;
+    background: #CED0CE;
+    padding: 100px 25px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px #475841;
+}
+
+#header {
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+#counter {
+    margin: 20px auto;
+}
+
+.question {
+    margin: 20px auto;
+}
+
+.source {
+    margin: 15px auto;
+}
+
+#btn {
+    background: #475841;
+    border: solid 2px white;
+    border-radius: 15px;
+    padding: 5px 30px;
+    color: white;
+    box-shadow: 2px 2px 5px #475841;
+}
+
+#btn:hover {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+}
